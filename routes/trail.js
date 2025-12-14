@@ -5,7 +5,7 @@ const Trail = require("../models/trailModel");
 const { validationResult ,check } = require('express-validator');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
 
 

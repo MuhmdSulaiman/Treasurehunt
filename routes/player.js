@@ -3,7 +3,7 @@ const router = express.Router();
 const { validationResult ,check } = require('express-validator');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const QRCode = require("qrcode");
 
 const User = require('../models/userModel');
