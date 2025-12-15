@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/userModel');
-
+const upload = require("../middleware/upload");
 
 // ============================
 // 🔐 VERIFY TOKEN MIDDLEWARE
@@ -39,14 +39,14 @@ const verifyToken = async (req, res, next) => {
 // ✅ CREATE A TRAIL
 // ============================
 // CREATE or UPDATE TRAIL (Unified Route)
-router.post("/trailCreate",verifyToken, async (req, res) => {
+router.post("/trailCreate",verifyToken,  upload.single("image"), async (req, res) => {
   try { 
     if (req.user.role !== 'admin') {
       return res.status(403).json({ message: 'Access denied. Only admins can create trail.' });
     }
-    const { levelNumber, place } = req.body;
+    const { levelNumber, place,answer } = req.body;
 
-    if (!levelNumber || !place) {
+    if (!levelNumber || !place|| !answer) {
       return res.status(400).json({ message: "levelNumber and place are required." });
     }
 

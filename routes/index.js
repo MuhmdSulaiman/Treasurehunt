@@ -36,6 +36,7 @@ const verifyToken = async (req, res, next) => {
 // ============================
 // 🔒 SIGNUP ROUTE
 // ============================
+
 router.post('/signup', async (req, res) => {
   try {
     const { name, password, role , department, phonenumber } = req.body;

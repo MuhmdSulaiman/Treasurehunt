@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
 
+const placeSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  answer: { type: String, required: true },
+  image: { type: String } // image URL/path
+});
 const trailSchema = new mongoose.Schema({
   levelNumber: {
     type: Number,
